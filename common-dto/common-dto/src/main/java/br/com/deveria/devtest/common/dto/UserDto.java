@@ -1,11 +1,7 @@
-package br.com.deveria.devtest.userapi.dto;
+package br.com.deveria.devtest.common.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import org.springframework.beans.BeanUtils;
-
-import br.com.deveria.devtest.userapi.domain.User;
 
 public class UserDto implements Serializable {
 	
@@ -26,12 +22,6 @@ public class UserDto implements Serializable {
 	private String email;
 
 	private Boolean admin;
-	
-	public UserDto() { }
-
-	public UserDto(User u) {
-		BeanUtils.copyProperties(u, this);
-	}
 
 	public Long getId() {
 		return id;

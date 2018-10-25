@@ -1,10 +1,10 @@
-package br.com.deveria.devtest.web;
+package br.com.deveria.devtest.webapplication;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@EnableAutoConfiguration
+@EnableConfigurationProperties
 @SpringBootApplication
 public class WebApplication {
 

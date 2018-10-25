@@ -9,8 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.deveria.devtest.common.dto.UserDto;
 import br.com.deveria.devtest.userapi.domain.User;
-import br.com.deveria.devtest.userapi.dto.UserDto;
 import br.com.deveria.devtest.userapi.repository.UserRepository;
 
 @Component
@@ -22,10 +22,10 @@ public class UserService {
 	public List<UserDto> findAll() {
 		Iterable<User> all = userRepository.findAll();
 		return StreamSupport.stream(all.spliterator(), false)
-			.map(u -> new UserDto(u))
+			.map(u -> getUserDtoFromUser(u))
 			.collect(Collectors.toList());
 	}
-	
+
 	public UserDto findById(Long id) {
 		Optional<User> userOpt = userRepository.findById(id);
 		if(userOpt.isPresent()) {
@@ -51,5 +51,11 @@ public class UserService {
 
 	public void delete(Long id) {
 		userRepository.deleteById(id);
+	}
+	
+	private UserDto getUserDtoFromUser(User u) {
+		UserDto userDto = new UserDto();
+		BeanUtils.copyProperties(u, userDto);
+		return userDto;
 	}
 }
