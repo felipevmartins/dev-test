@@ -31,6 +31,11 @@ public class UserController {
 	public List<UserDto> find() {
 		return userService.findAll();
 	}
+
+	@GetMapping("/findByLogin/{login}")
+	public UserDto findByLogin(@PathVariable String login) {
+		return userService.findByLogin(login);
+	}
 	
 	@PostMapping("/insert")
 	public void insert(@RequestBody UserDto userDto) {

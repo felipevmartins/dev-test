@@ -30,7 +30,18 @@ public class UserService {
 		Optional<User> userOpt = userRepository.findById(id);
 		if(userOpt.isPresent()) {
 			UserDto userDto = new UserDto();
-			BeanUtils.copyProperties(userDto, userOpt.get());
+			BeanUtils.copyProperties(userOpt.get(), userDto);
+			return userDto;
+		} else {
+			return null;
+		}
+	}
+
+	public UserDto findByLogin(String login) {
+		Optional<User> userOpt = userRepository.findByLogin(login);
+		if(userOpt.isPresent()) {
+			UserDto userDto = new UserDto();
+			BeanUtils.copyProperties(userOpt.get(), userDto);
 			return userDto;
 		} else {
 			return null;

@@ -18,7 +18,7 @@ public class RabbitConfig {
 	private Environment environment;
 	
 	@Bean
-	public ConnectionFactory connectionFactory() {
+	public ConnectionFactory rabbitConnectionFactory() {
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
 		connectionFactory.setHost(environment.getProperty("rabbitmq.host"));
 		connectionFactory.setPort(environment.getProperty("rabbitmq.port", Integer.class));
@@ -29,12 +29,12 @@ public class RabbitConfig {
 	
 	@Bean
 	public AmqpAdmin amqpAdmin() {
-		return new RabbitAdmin(connectionFactory());
+		return new RabbitAdmin(rabbitConnectionFactory());
 	}
 	
 	@Bean
 	public RabbitTemplate rabbitTemplate() {
-		RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
+		RabbitTemplate rabbitTemplate = new RabbitTemplate(rabbitConnectionFactory());
 		return rabbitTemplate;
 	}
 	
