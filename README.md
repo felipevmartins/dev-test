@@ -1,15 +1,15 @@
 # dev-test
-#### Spring MVC, Cloud, Security and RabbitMQ
-- Projeto criado para fins de avaliação e nivelamento de conhecimento sobre as tecnologias acima citadas.
-- Foram criadas 4 aplicações com as seguintes características:
+## Spring MVC, Cloud, Security and RabbitMQ
+#### Projeto criado para fins de avaliação e nivelamento de conhecimento sobre as tecnologias acima citadas.
+#### Foram criadas 4 aplicações com as seguintes características:
 
-1 **web-application**:
+* web-application:
 
-2 **user-api**:
+* user-api:
 
-3 **email-consumer**:
+* email-consumer:
 
-4 **config-server**:
+* config-server:
 
 ## Configuração
 #### Necessário que a máquina possua instalados:
