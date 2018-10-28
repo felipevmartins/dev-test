@@ -5,7 +5,7 @@
 
 	<groupId>br.com.deveria.devtest</groupId>
 	<artifactId>email-consumer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>email-consumer</name>
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>br.com.deveria.devtest</groupId>
 			<artifactId>common-dto</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>

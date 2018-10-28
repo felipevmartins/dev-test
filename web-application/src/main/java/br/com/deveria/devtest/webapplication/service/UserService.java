@@ -19,8 +19,8 @@ import br.com.deveria.devtest.common.dto.UserDto;
 @Component
 public class UserService implements UserDetailsService {
 
-	@Value("${user.api.url}")
-	private String userApiUrl;
+	@Value("'${user.api.url}'+'${user.api.findbylogin}'")
+	private String USERAPI_FINDBYLOGIN;
 	
 	@Override
 	public UserDetails loadUserByUsername(String userLogin) throws UsernameNotFoundException {
@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
 		
 		ResponseEntity<UserDto> responseEntity = null;
 		try {
-			responseEntity = rest.getForEntity(userApiUrl+"/user/findByLogin/"+userLogin, UserDto.class);			
+			responseEntity = rest.getForEntity(USERAPI_FINDBYLOGIN+userLogin, UserDto.class);			
 		} catch (Exception e) {
 			throw new RuntimeException("Error accessing User api");
 		}

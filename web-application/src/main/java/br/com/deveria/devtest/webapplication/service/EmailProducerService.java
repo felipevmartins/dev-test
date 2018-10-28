@@ -23,11 +23,7 @@ public class EmailProducerService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmailProducerService.class);
 
-	public boolean produce(String to, String message) {
-		EmailDto emailDto = new EmailDto();
-		emailDto.setTo(to);
-		emailDto.setMessage(message);
-		
+	public boolean produce(EmailDto emailDto) {
 		try {
 			String json = new ObjectMapper().writeValueAsString(emailDto);
 			rabbitTemplate.convertAndSend(emailQueue.getName(), json);
@@ -36,7 +32,6 @@ public class EmailProducerService {
 			LOGGER.error("Email produce fail. "+e.getMessage(), e);
 			return false;
 		}
-		
 	}
 
 }
