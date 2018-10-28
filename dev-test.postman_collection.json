@@ -43,12 +43,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "thiago",
+							"value": "admin",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "thiago",
+							"value": "admin",
 							"type": "string"
 						}
 					]
@@ -84,12 +84,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "thiago",
+							"value": "admin",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "thiago",
+							"value": "admin",
 							"type": "string"
 						}
 					]
