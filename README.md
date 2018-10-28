@@ -6,7 +6,7 @@
 * web-application:
   * Projeto Web criado com Spring Boot
   * Utiliza o Spring Security e consome dados da user-api para login de usuários (apenas endpoint, sem interface).
-  * Cache de sessão salvo no banco de dados Redis.
+  * Sessão salva no banco de dados Redis.
   * Endpoint para envio de emails à fila do RabbitMQ.
 
 * user-api:
