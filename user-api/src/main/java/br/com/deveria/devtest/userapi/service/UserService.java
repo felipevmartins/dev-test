@@ -7,6 +7,7 @@ import java.util.stream.StreamSupport;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import br.com.deveria.devtest.common.dto.UserDto;
@@ -51,6 +52,7 @@ public class UserService {
 	public void insert(UserDto userDto) {
 		User user = new User();
 		BeanUtils.copyProperties(userDto, user);
+		user.setPassword(new BCryptPasswordEncoder().encode(userDto.getPassword()));
 		userRepository.save(user);
 	}
 	

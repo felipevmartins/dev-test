@@ -3,6 +3,8 @@ package br.com.deveria.devtest.userapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,17 +40,32 @@ public class UserController {
 	}
 	
 	@PostMapping("/insert")
-	public void insert(@RequestBody UserDto userDto) {
-		userService.insert(userDto);
+	public ResponseEntity<String> insert(@RequestBody UserDto userDto) {
+		try {			
+			userService.insert(userDto);
+			return new ResponseEntity<String>("User inserted!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Insert fail!", HttpStatus.OK);
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public void delete(@PathVariable Long id) {
-		userService.delete(id);
+	public ResponseEntity<String> delete(@PathVariable Long id) {
+		try {			
+			userService.delete(id);
+			return new ResponseEntity<String>("User deleted!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Delete fail!", HttpStatus.OK);
+		}
 	}
 	
 	@PutMapping("/update")
-	public void update(@RequestBody UserDto userDto) {
-		userService.update(userDto);
+	public ResponseEntity<String> update(@RequestBody UserDto userDto) {
+		try {			
+			userService.update(userDto);
+			return new ResponseEntity<String>("User updated!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Update fail!", HttpStatus.OK);
+		}
 	}
 }

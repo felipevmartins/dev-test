@@ -20,3 +20,4 @@ cd ..
 cd user-api
 mvn install -DskipTests
 sudo docker build . --build-arg JAR_FILE=user-api-1.0.0.jar -t user-api
+

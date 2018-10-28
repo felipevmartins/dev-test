@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +20,7 @@ import br.com.deveria.devtest.common.dto.UserDto;
 @Component
 public class UserService implements UserDetailsService {
 
-	@Value("'${user.api.url}'+'${user.api.findbylogin}'")
+	@Value("${user.api.url}${user.api.findbylogin}")
 	private String USERAPI_FINDBYLOGIN;
 	
 	@Override
@@ -45,7 +46,8 @@ public class UserService implements UserDetailsService {
 			authorities.add(new SimpleGrantedAuthority("USER"));
 		}
 		
-		User user = new User(userDto.getLogin(), userDto.getPassword(), authorities);
+		User user = new User(userDto.getLogin(), userDto.getPassword(),
+				authorities);
 		
 		return user;
 	}

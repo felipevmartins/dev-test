@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "d867ab3e-df26-4180-8877-5d5f996828ad",
+		"name": "dev-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Inserir User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"thiago\",\n\"login\":\"thiago\",\n\"password\":\"thiago\",\n\"createdDate\":\"2018-10-25\",\n\"email\":\"thiago\",\n\"name\":\"thiago\",\n\"admin\":\"true\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8086/user/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"user",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "thiago",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "thiago",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8085/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste Envio Email",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "thiago",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "thiago",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\":\"thiagobcar@gmail.com\",\n\t\"message\":\"Mensagem de teste para o rabbitMQ\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8085/email",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste Envio Email User Invalido",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\":\"thiagobcar@gmail.com\",\n\t\"message\":\"Mensagem de teste para o rabbitMQ\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8085/email",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"email"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

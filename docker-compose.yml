@@ -20,42 +20,45 @@ services:
   
   redis:
     image: redis:5.0.0
+    ports:
+      - 6379:6379
 
   ConfigServer:
     image: config-server
     ports:
       - 8001:8001
 
-  # EmailConsumer:
-  #   image: email-consumer
-  #   depends_on:
-  #     - ConfigServer
-  #     - rabbitmq
-  #   links:
-  #     - ConfigServer
-  #     - rabbitmq
-
   # UserApi:
   #   image: user-api
-  #   restart: always
   #   depends_on:
-  #     - ConfigServer
   #     - mysql
+  #     - ConfigServer
   #   links:
-  #     - ConfigServer
   #     - mysql
+  #     - ConfigServer
   #   ports:
   #     - 8086:8086
 
   # WebApplication:
   #   image: web-application
   #   depends_on:
+  #     - rabbitmq
+  #     - redis
   #     - ConfigServer
   #     - UserApi
-  #     - redis
   #   links:
+  #     - rabbitmq
+  #     - redis
   #     - ConfigServer
   #     - UserApi
-  #     - redis
   #   ports:
   #     - 8085:8085
+
+  # EmailConsumer:
+  #   image: email-consumer
+  #   depends_on:
+  #     - rabbitmq
+  #     - ConfigServer
+  #   links:
+  #     - rabbitmq
+  #     - ConfigServer
