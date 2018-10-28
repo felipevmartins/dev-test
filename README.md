@@ -20,18 +20,18 @@
   * Spring Cloud Config Server onde foram centralizadas todas as informações referentes à configuração das aplicações.
 
 ## Configuração
-#### Necessário que a máquina possua instalados:
+### Necessário que a máquina possua instalados:
 - java 8
 - maven
 - docker
 - docker-compose
 
-#### Clonar projeto:
+### Clonar projeto:
 ```sh
 git clone https://github.com/thiagobcar/dev-test.git
 ```
 
-#### Preparar arquivos de configuração:
+### Preparar arquivos de configuração:
 - Fazer unzip do arquivo config.zip
 ```sh
 unzip config.zip
@@ -59,7 +59,7 @@ spring.application.name=configserver
 spring.cloud.config.server.git.uri=file:///***config_path***/config
 ```
 
-#### Executar build:
+### Executar build:
 - No script build.sh são gerados os .jars dos projetos e criados os containers de cada um.
 > Informar senha caso necessário.
 ```sh
@@ -67,8 +67,8 @@ chmod +x build.sh
 ./build.sh
 ```
 
-#### Executar run:
-- No script run.sh chamamos o docker-compose para iniciar os containers necessários às nossas aplicaçes.
+### Executar run:
+- No script run.sh o docker-compose é executado para iniciar os containers necessários às nossas aplicaçes.
 - Também é criado um usuário inicial *login*:**admin** *password*:**admin**.
 > nem todas as aplicações estão com seus containers funcionais, por isso foram comentadas no arquivo docker-compose.yml e executadas diretamente com java -jar.
 
@@ -79,6 +79,6 @@ chmod +x run.sh
 ```
 
 ## Documentação Rest com Swagger
-#### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
+### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
 * Web Application: http://localhost:8085/swagger-ui.html
 * User Api: http://localhost:8086/swagger-ui.html
