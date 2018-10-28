@@ -56,7 +56,7 @@ rabbitmq.port=5672
 ```
 server.port=8001
 spring.application.name=configserver
-spring.cloud.config.server.git.uri=file:///***user_path***/config
+spring.cloud.config.server.git.uri=file:///***config_path***/config
 ```
 
 #### Executar build:
