@@ -82,3 +82,7 @@ chmod +x run.sh
 ### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
 * Web Application: http://localhost:8085/swagger-ui.html
 * User Api: http://localhost:8086/swagger-ui.html
+
+### Testes com Postman
+* Foi incluído um projeto simples do Postman que utilizei para realizar testes.
+  * "dev-test.postman_collection.json"
