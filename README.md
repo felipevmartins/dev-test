@@ -4,12 +4,25 @@
 #### Foram criadas 4 aplicações com as seguintes características:
 
 * web-application:
+  * Projeto Web criado com Spring Boot
+  * Utiliza o Spring Security e consome dados da user-api para login de usuários (apenas endpoint, sem interface).
+  * Cache de sessão salvo no banco de dados Redis.
+  * Endpoint para envio de emails à fila do RabbitMQ.
 
 * user-api:
+  * Api de CRUD para usuários do sistema.
+  * Persistência em banco de dados MySQL
 
 * email-consumer:
+  * Aplicação que consome a fila de emails enviados ao RabbitMQ.
 
 * config-server:
+  * Spring Cloud Config Server onde foram centralizadas todas as informações referentes à configuração das aplicações.
+
+## Documentação Rest com Swagger
+#### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
+* Web Application: http://localhost:8085/swagger-ui.html
+* User Api: http://localhost:8086/swagger-ui.html
 
 ## Configuração
 #### Necessário que a máquina possua instalados:
@@ -66,8 +79,3 @@ chmod +x build.sh
 chmod +x run.sh
 ./run.sh
 ```
-
-## Documentação Rest com Swagger
-#### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
-* Web Application: http://localhost:8085/swagger-ui.html
-* User Api: http://localhost:8086/swagger-ui.html
