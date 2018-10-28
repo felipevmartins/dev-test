@@ -77,6 +77,10 @@ chmod +x build.sh
 chmod +x run.sh
 ./run.sh
 ```
+> Execução pode ser acompanhada pelo arquivo "log.txt"
+```sh
+tail -f log.txt
+```
 
 ## Documentação Rest com Swagger
 ### O swagger foi incluído nos projetos web e user-api para realizar uma documentação automática da api Rest.
