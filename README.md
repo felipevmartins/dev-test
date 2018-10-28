@@ -68,7 +68,7 @@ chmod +x build.sh
 ```
 
 ### Executar run:
-- No script run.sh o docker-compose é executado para iniciar os containers necessários às nossas aplicaçes.
+- No script run.sh o docker-compose é executado para iniciar os containers necessários às aplicações.
 - Também é criado um usuário inicial *login*:**admin** *password*:**admin**.
 > nem todas as aplicações estão com seus containers funcionais, por isso foram comentadas no arquivo docker-compose.yml e executadas diretamente com java -jar.
 
