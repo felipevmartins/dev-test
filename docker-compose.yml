@@ -23,10 +23,10 @@ services:
     ports:
       - 6379:6379
 
-  ConfigServer:
-    image: config-server
-    ports:
-      - 8001:8001
+  # ConfigServer:
+  #   image: config-server
+  #   ports:
+  #     - 8001:8001
 
   # UserApi:
   #   image: user-api
