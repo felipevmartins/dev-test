@@ -126,6 +126,10 @@ services:
       - 6379:6379
 ```
 > Contendo apenas os containers dos quais a aplicação depende.
+- Iniciar containers pelo compose:
+```sh
+sudo docker-compose up --remove-orphans
+```
 - Executar diretamente pela IDE as aplicações na seguinte ordem:
   * config-server
   * user-api
