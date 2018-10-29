@@ -33,7 +33,7 @@ public class UserService implements UserDetailsService {
 		} catch (Exception e) {
 			throw new RuntimeException("Error accessing User api");
 		}
-		UserDto userDto = responseEntity.getBody();
+		UserDto userDto = responseEntity != null ? responseEntity.getBody() : null;
 		
 		if(userDto == null) {
 			throw new UsernameNotFoundException("User not found");

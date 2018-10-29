@@ -41,11 +41,14 @@ public class UserController {
 	
 	@PostMapping("/insert")
 	public ResponseEntity<String> insert(@RequestBody UserDto userDto) {
-		try {			
-			userService.insert(userDto);
+		try {
+			if(userDto == null) {
+				throw new Exception("UserDto required.");
+			}
+			userService.insert(userService.getUserFromUserDto(userDto));
 			return new ResponseEntity<String>("User inserted!", HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<String>("Insert fail!", HttpStatus.OK);
+			return new ResponseEntity<String>("Insert fail! Erro:"+e.getMessage(), HttpStatus.OK);
 		}
 	}
 
@@ -55,17 +58,20 @@ public class UserController {
 			userService.delete(id);
 			return new ResponseEntity<String>("User deleted!", HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<String>("Delete fail!", HttpStatus.OK);
+			return new ResponseEntity<String>("Delete fail! Erro:"+e.getMessage(), HttpStatus.OK);
 		}
 	}
 	
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody UserDto userDto) {
-		try {			
-			userService.update(userDto);
+		try {
+			if(userDto == null) {
+				throw new Exception("UserDto required.");
+			}
+			userService.update(userService.getUserFromUserDto(userDto));
 			return new ResponseEntity<String>("User updated!", HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<String>("Update fail!", HttpStatus.OK);
+			return new ResponseEntity<String>("Update fail! Erro:"+e.getMessage(), HttpStatus.OK);
 		}
 	}
 }

@@ -5,6 +5,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -49,24 +52,26 @@ public class UserService {
 		}
 	}
 	
-	public void insert(UserDto userDto) {
-		User user = new User();
-		BeanUtils.copyProperties(userDto, user);
-		user.setPassword(new BCryptPasswordEncoder().encode(userDto.getPassword()));
+	public void insert(@Valid User user) throws Exception {
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		userRepository.save(user);
 	}
 	
-	public void update(UserDto userDto) {
-		User user = new User();
-		BeanUtils.copyProperties(userDto, user);
+	public void update(@Valid User user) {
 		userRepository.save(user);
 	}
 
-	public void delete(Long id) {
+	public void delete(@NotNull Long id) {
 		userRepository.deleteById(id);
 	}
 	
-	private UserDto getUserDtoFromUser(User u) {
+	public User getUserFromUserDto(UserDto u) {
+		User user = new User();
+		BeanUtils.copyProperties(u, user);
+		return user;
+	}
+	
+	public UserDto getUserDtoFromUser(User u) {
 		UserDto userDto = new UserDto();
 		BeanUtils.copyProperties(u, userDto);
 		return userDto;
