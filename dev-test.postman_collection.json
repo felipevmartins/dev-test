@@ -36,6 +36,106 @@
 			"response": []
 		},
 		{
+			"name": "Deletar User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8086/user/delete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"user",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"thiago\",\n\"login\":\"thiago\",\n\"password\":\"thiago\",\n\"createdDate\":\"2018-10-25\",\n\"email\":\"thiago\",\n\"admin\":\"true\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8086/user/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAll User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8086/user/findAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"user",
+						"findAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Teste Login",
 			"request": {
 				"auth": {
